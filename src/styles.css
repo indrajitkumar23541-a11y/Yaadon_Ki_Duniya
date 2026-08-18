@@ -201,7 +201,42 @@
 }
 .control-btn:hover { color: #fff; }
 .control-btn.active { color: #d9b77b; }
+.mode-btn {
+  background: rgba(217, 183, 123, 0.15) !important;
+  border: 1px solid rgba(217, 183, 123, 0.3) !important;
+  border-radius: 12px;
+  padding: 3px 8px !important;
+  color: #d9b77b !important;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+}
+.mode-btn.active {
+  background: rgba(217, 183, 123, 0.3) !important;
+  border-color: #d9b77b !important;
+  box-shadow: 0 0 10px rgba(217, 183, 123, 0.3);
+}
+
+.genre-pill {
+  font-size: 0.68rem;
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.bhojpuri-pill {
+  background: rgba(245, 158, 11, 0.25);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+.hindi-pill {
+  background: rgba(59, 130, 246, 0.25);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+}
+
 .play-pause-btn {
+
   width: 36px;
   height: 36px;
   border-radius: 50%;

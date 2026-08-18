@@ -5,6 +5,7 @@ export type Song = {
   year: number;
   videoId: string;
   artwork: string;
+  category?: 'bollywood' | 'bhojpuri';
 };
 
 export type Scene = {
@@ -18,6 +19,66 @@ export type Scene = {
   ambienceAudio: string;
   playlist: Song[];
 };
+
+export function isBhojpuriSong(song: Song): boolean {
+  if (song.category === 'bhojpuri') return true;
+  if (song.category === 'bollywood') return false;
+  if (typeof song.id === 'number' && ((song.id >= 701 && song.id <= 800) || (song.id >= 361 && song.id <= 400) || (song.id >= 570 && song.id <= 600) || (song.id >= 681 && song.id <= 700))) {
+    return true;
+  }
+  const artist = song.artist.toLowerCase();
+  const title = song.title.toLowerCase();
+  const keywords = [
+    'bhojpuri', 'manoj tiwari', 'radhe shyam', 'kalpana', 'sharda sinha', 'pawan singh',
+    'khesari', 'ritesh', 'awadhesh', 'gayatri rani', 'mohammed aziz', 'mistu bardhan',
+    'rambriksh', 'kabita rani', 'sunil chhaila', 'shubha mishra', 'alka chandrakar',
+    'mohan rathod', 'indu sonali', 'neelkamal', 'dinesh lal', 'nirahua', 'bahangiya',
+    'chhati', 'chhath', 'sasural', 'piawa', 'balam', 'odhaniya', 'rinkiya', 'chhalakata'
+  ];
+  return keywords.some(k => artist.includes(k) || title.includes(k));
+}
+
+export function getInterleavedPlaylist(playlist: Song[]): Song[] {
+  if (!playlist || playlist.length === 0) return [];
+  
+  const bollywood: Song[] = [];
+  const bhojpuri: Song[] = [];
+  
+  playlist.forEach(s => {
+    if (isBhojpuriSong(s)) {
+      bhojpuri.push(s);
+    } else {
+      bollywood.push(s);
+    }
+  });
+
+  if (bollywood.length === 0 || bhojpuri.length === 0) return playlist;
+
+  const result: Song[] = [];
+  let hIdx = 0;
+  let bIdx = 0;
+  const total = playlist.length;
+
+  while (result.length < total) {
+    // 2 Bollywood songs
+    for (let i = 0; i < 2; i++) {
+      if (hIdx < bollywood.length) {
+        result.push(bollywood[hIdx++]);
+      } else if (bIdx < bhojpuri.length) {
+        result.push(bhojpuri[bIdx++]);
+      }
+    }
+    // 1 Bhojpuri song
+    if (bIdx < bhojpuri.length) {
+      result.push(bhojpuri[bIdx++]);
+    } else if (hIdx < bollywood.length) {
+      result.push(bollywood[hIdx++]);
+    }
+  }
+
+  return result;
+}
+
 
 export const scenes: Scene[] = [
   {

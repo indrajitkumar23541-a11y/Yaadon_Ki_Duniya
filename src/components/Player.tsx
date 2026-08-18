@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
-import { Play, Pause, SkipBack, SkipForward, Volume2, CloudRain, Repeat, Shuffle } from 'lucide-react';
-import { Scene } from '../data';
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import { Play, Pause, SkipBack, SkipForward, Volume2, CloudRain, Repeat, Shuffle, Radio } from 'lucide-react';
+import { Scene, getInterleavedPlaylist, isBhojpuriSong } from '../data';
 
 interface PlayerProps { scene: Scene | null; }
 
@@ -27,6 +27,7 @@ export default function Player({ scene }: PlayerProps) {
   const [duration, setDuration] = useState(0);
   const [isShuffle, setIsShuffle] = useState(false);
   const [isRepeat, setIsRepeat] = useState(false);
+  const [isInterleaved, setIsInterleaved] = useState(true);
   const [ytReady, setYtReady] = useState(false);
 
   const ytPlayerRef = useRef<any>(null);
@@ -37,7 +38,14 @@ export default function Player({ scene }: PlayerProps) {
   const handleEndedRef = useRef<() => void>(() => {});
   const nextTrackRef = useRef<() => void>(() => {});
 
-  const currentSong = scene?.playlist?.[songIndex] || null;
+  // Compute active playlist with 2:1 Interleaving Engine when active
+  const activePlaylist = useMemo(() => {
+    if (!scene?.playlist) return [];
+    return isInterleaved ? getInterleavedPlaylist(scene.playlist) : scene.playlist;
+  }, [scene?.playlist, isInterleaved]);
+
+  const currentSong = activePlaylist[songIndex] || null;
+  const isCurrentBhojpuri = currentSong ? isBhojpuriSong(currentSong) : false;
 
   // Initialize YouTube API
   useEffect(() => {
@@ -59,16 +67,13 @@ export default function Player({ scene }: PlayerProps) {
     };
 
     if (!window.YT) {
-      // API script abhi load nahi hua — inject karo
       const tag = document.createElement('script');
       tag.src = "https://www.youtube.com/iframe_api";
       document.getElementsByTagName('script')[0]?.parentNode?.insertBefore(tag, document.getElementsByTagName('script')[0]);
       window.onYouTubeIframeAPIReady = createPlayer;
     } else if (window.YT.Player) {
-      // API already available (HMR / fast reload) — seedha player banao
       createPlayer();
     } else {
-      // API load ho rahi hai lekin ready nahi — callback set karo
       window.onYouTubeIframeAPIReady = createPlayer;
     }
   }, []);
@@ -124,18 +129,18 @@ export default function Player({ scene }: PlayerProps) {
   }, [isPlaying, ytReady]);
 
   const nextTrack = useCallback(() => {
-    if (!scene) return;
+    if (!activePlaylist || activePlaylist.length === 0) return;
     if (isShuffle) {
-      setSongIndex(Math.floor(Math.random() * scene.playlist.length));
+      setSongIndex(Math.floor(Math.random() * activePlaylist.length));
     } else {
-      setSongIndex(prev => (prev + 1) % scene.playlist.length);
+      setSongIndex(prev => (prev + 1) % activePlaylist.length);
     }
-  }, [scene, isShuffle]);
+  }, [activePlaylist, isShuffle]);
 
   const prevTrack = useCallback(() => {
-    if (!scene) return;
-    setSongIndex(prev => (prev - 1 + scene.playlist.length) % scene.playlist.length);
-  }, [scene]);
+    if (!activePlaylist || activePlaylist.length === 0) return;
+    setSongIndex(prev => (prev - 1 + activePlaylist.length) % activePlaylist.length);
+  }, [activePlaylist]);
 
   const handleEnded = useCallback(() => {
     if (isRepeat) {
@@ -182,7 +187,12 @@ export default function Player({ scene }: PlayerProps) {
           {isPlaying && <div className="artwork-pulse-ring" />}
         </div>
         <div className="player-track-info">
-          <h4>{currentSong.title}</h4>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <h4>{currentSong.title}</h4>
+            <span className={`genre-pill ${isCurrentBhojpuri ? 'bhojpuri-pill' : 'hindi-pill'}`}>
+              {isCurrentBhojpuri ? '🪕 Bhojpuri' : '🎬 Bollywood'}
+            </span>
+          </div>
           <p>{currentSong.artist} • {currentSong.year}</p>
           {/* Scene label */}
           <span className="player-scene-label">{scene.icon} {scene.hindi}</span>
@@ -203,6 +213,14 @@ export default function Player({ scene }: PlayerProps) {
         </div>
 
         <div className="player-controls">
+          <button
+            className={`control-btn mode-btn${isInterleaved ? ' active' : ''}`}
+            onClick={() => setIsInterleaved(!isInterleaved)}
+            title={isInterleaved ? "2:1 Interleaved Radio Mode (2 Hindi : 1 Bhojpuri) Active" : "Sequential Playlist Mode"}
+          >
+            <Radio size={16} />
+            <span style={{ fontSize: '0.75rem', fontWeight: 600, marginLeft: '4px' }}>2:1</span>
+          </button>
           <button className={`control-btn${isShuffle ? ' active' : ''}`} onClick={() => setIsShuffle(!isShuffle)} title="Shuffle">
             <Shuffle size={16} />
           </button>
@@ -251,3 +269,4 @@ export default function Player({ scene }: PlayerProps) {
     </>
   );
 }
+
