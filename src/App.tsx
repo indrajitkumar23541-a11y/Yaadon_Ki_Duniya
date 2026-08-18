@@ -123,14 +123,14 @@ export default function App() {
             <span><b>Yaadon Ki</b><em>Duniya</em></span>
           </a>
 
-          {/* ── Centered Weather & Atmosphere Switcher ── */}
-          <WeatherOverlay mode={weatherMode} onModeChange={setWeatherMode} />
-
           <div className={menuOpen ? 'nav-links open' : 'nav-links'}>
             <a href="#anubhav" onClick={() => setMenuOpen(false)}>Anubhav</a>
             <a href="#tuner" onClick={() => setMenuOpen(false)}>Radio Tuner</a>
             <a href="#kaise" onClick={() => setMenuOpen(false)}>Kaise Kaam Karta Hai</a>
             <a href="#about" onClick={() => setMenuOpen(false)}>Humare Baare Mein</a>
+
+            <span className="nav-divider" aria-hidden="true">|</span>
+            <WeatherOverlay mode={weatherMode} onModeChange={setWeatherMode} />
           </div>
           <button className="menu" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
             {menuOpen ? <X /> : <Menu />}

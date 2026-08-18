@@ -45,35 +45,35 @@ export default function WeatherOverlay({ mode, onModeChange }: WeatherOverlayPro
         {mode === 'sunset' && <div className="sunset-gradient-overlay" />}
       </div>
 
-      {/* Floating Weather Control Bar */}
-      <div className="weather-control-pill">
+      {/* Weather Control Links matching Navbar style */}
+      <div className="weather-nav-group">
         <button
-          className={`weather-btn ${mode === 'day' ? 'active' : ''}`}
+          className={`nav-weather-link ${mode === 'day' ? 'active' : ''}`}
           onClick={() => onModeChange('day')}
           title="Daylight Sunshine"
         >
-          <Sun size={15} /> <span>Day</span>
+          <Sun size={13} /> <span>DAY</span>
         </button>
         <button
-          className={`weather-btn ${mode === 'sunset' ? 'active' : ''}`}
+          className={`nav-weather-link ${mode === 'sunset' ? 'active' : ''}`}
           onClick={() => onModeChange('sunset')}
           title="Sunset Hour"
         >
-          <Sunset size={15} /> <span>Sunset</span>
+          <Sunset size={13} /> <span>SUNSET</span>
         </button>
         <button
-          className={`weather-btn ${mode === 'night' ? 'active' : ''}`}
+          className={`nav-weather-link ${mode === 'night' ? 'active' : ''}`}
           onClick={() => onModeChange('night')}
           title="Moonlight Night"
         >
-          <Moon size={15} /> <span>Night</span>
+          <Moon size={13} /> <span>NIGHT</span>
         </button>
         <button
-          className={`weather-btn ${mode === 'rain' ? 'active' : ''}`}
+          className={`nav-weather-link ${mode === 'rain' ? 'active' : ''}`}
           onClick={() => onModeChange('rain')}
           title="Rainy Glass Atmosphere"
         >
-          <CloudRain size={15} /> <span>Rain</span>
+          <CloudRain size={13} /> <span>RAIN</span>
         </button>
       </div>
     </>
