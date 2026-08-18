@@ -90,9 +90,6 @@ export default function App() {
       {/* ── Cinematic black fade-in intro ── */}
       <div className={`cinematic-intro${loaded ? ' intro-done' : ''}`} />
 
-      {/* ── Dynamic Weather & Time Mode Overlay ── */}
-      <WeatherOverlay mode={weatherMode} onModeChange={setWeatherMode} />
-
       {/* ── SVG Film Grain overlay ── */}
       <svg className="film-grain-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <filter id="grain-filter">
@@ -125,6 +122,10 @@ export default function App() {
             <span className="brand-mark">Y</span>
             <span><b>Yaadon Ki</b><em>Duniya</em></span>
           </a>
+
+          {/* ── Centered Weather & Atmosphere Switcher ── */}
+          <WeatherOverlay mode={weatherMode} onModeChange={setWeatherMode} />
+
           <div className={menuOpen ? 'nav-links open' : 'nav-links'}>
             <a href="#anubhav" onClick={() => setMenuOpen(false)}>Anubhav</a>
             <a href="#tuner" onClick={() => setMenuOpen(false)}>Radio Tuner</a>
