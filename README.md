@@ -24,6 +24,9 @@
 
 ## 🌟 Key Highlights & New Features
 
+- 🌌 **100% Crystal-Clear Transparent Navbar**: Fully transparent glassmorphic header bar ensuring 100% unblocked visibility of the HD cinematic hero background artwork.
+- 🔗 **Unified Navigation & Weather Links**: Atmosphere modes (`DAY`, `SUNSET`, `NIGHT`, `RAIN`) formatted in exact matching uppercase typography alongside navigation links (`ANUBHAV`, `RADIO TUNER`, `KAISE KAAM KARTA HAI`) with glowing golden hover indicators.
+- 🎬 **Rich Micro-Animations System**: Full-site animation system including `brandPulse` logo glow, `heroSlideUp` staggered entrances, `cardFloat` 3D card breathing, `badgeGlow` playing indicators, and button light sweeps.
 - 📻 **Vintage Radio Tuning Dial & FM Static Sweep**: Interactive 88.5 FM — 107.9 FM radio dial with real-time station locking and authentic MW/FM radio static sound effects.
 - 🎙️ **Animated Audio Cassette Deck View**: Real-time spinning spools, magnetic tape ribbon, and Side A / Side B indicators while tracks play.
 - 🫖 **Interactive Desi Sound FX Board**: Instant Web Audio triggers for Bus Horn (🎺 Poo-Poo!), Salon Scissors (✂️ Snip), Kulhad Chai Pouring (🫖), Train Whistle (🚂), and Radio Tuning (📻).
