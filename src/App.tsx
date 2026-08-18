@@ -148,7 +148,7 @@ export default function App() {
           <div className="cinematic-bg">
             <img
               className="cinematic-video-layer"
-              src="/images/hero.jpg"
+              src="./images/hero.jpg"
               alt="Yaadon Ki Duniya - Purana Bharat"
               style={{ transform: `scale(1.12) translate(${mousePos.x * -22}px, ${mousePos.y * -15}px)` }}
             />
@@ -242,7 +242,7 @@ export default function App() {
         {/* ── How It Works ── */}
         <section id="kaise" className="how shell">
           <div className="how-art how-photo reveal">
-            <img src="/images/yaadon-section.png" alt="Vintage cassette player with old family memories" />
+            <img src="./images/yaadon-section.png" alt="Vintage cassette player with old family memories" />
           </div>
           <div className="how-copy reveal">
             <div className="eyebrow"><span></span> BAS TEEN KADAM</div>
