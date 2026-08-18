@@ -24,6 +24,12 @@
 
 ## 🌟 Key Highlights & New Features
 
+- 📻 **Vintage Radio Tuning Dial & FM Static Sweep**: Interactive 88.5 FM — 107.9 FM radio dial with real-time station locking and authentic MW/FM radio static sound effects.
+- 🎙️ **Animated Audio Cassette Deck View**: Real-time spinning spools, magnetic tape ribbon, and Side A / Side B indicators while tracks play.
+- 🫖 **Interactive Desi Sound FX Board**: Instant Web Audio triggers for Bus Horn (🎺 Poo-Poo!), Salon Scissors (✂️ Snip), Kulhad Chai Pouring (🫖), Train Whistle (🚂), and Radio Tuning (📻).
+- 🌧️ **Dynamic Weather & Time of Day Switcher**: Toggle between Daylight Sunshine (☀️), Sunset Hour (🌇), Moonlight Stars (🌙), and Rainy Glass Drops (🌧️).
+- 💌 **90s Postcard / Chitthi Memory Generator**: Create and share customized retro handwritten Indian Postcards with official postmarks, stamps, and track info.
+- 🎭 **Mood & Emotion Filter**: Filter music by vibe (`✨ All` | `❤️ Dil Se Romantic` | `🚗 Travel Roadtrip` | `🕺 High-Energy Masti` | `😢 Birha & Yaadein` | `🌄 Pehla Nasha / Morning`).
 - 📻 **Dynamic 2:1 Interleaved Radio Engine**: Built-in algorithm that automatically interleaves 2 Bollywood/Hindi Nostalgia tracks with 1 Desi Bhojpuri Hit (`Hindi → Hindi → Bhojpuri → Hindi → Hindi → Bhojpuri...`).
 - 🪕 **Global Bhojpuri Flashback Gold Dataset**: 100 classic 90s/2000s Bhojpuri hits (Gayatri Rani, Manoj Tiwari, Radhe Shyam Rasiya cassette classics, Sharda Sinha folk, Pawan Singh, Kalpana) integrated into every scene's playback pool.
 - 🏷️ **Live Genre Pills & UI Badges**: Player UI displays real-time genre badges (`🎬 Bollywood` / `🪕 Bhojpuri`) alongside track info.

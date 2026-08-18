@@ -1,8 +1,13 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { ArrowDown, ArrowRight, ChevronRight, Heart, Menu, Sparkles, X } from 'lucide-react';
+import { ArrowDown, ArrowRight, ChevronRight, Heart, Menu, Sparkles, X, Mail } from 'lucide-react';
 import { scenes, Scene } from './data';
 import Player from './components/Player';
 import SceneBackground from './components/SceneBackground';
+import RadioTuner from './components/RadioTuner';
+import WeatherOverlay, { WeatherMode } from './components/WeatherOverlay';
+import SoundBoard from './components/SoundBoard';
+import MoodFilter, { MoodType } from './components/MoodFilter';
+import PostcardModal from './components/PostcardModal';
 import './styles.css';
 
 export default function App() {
@@ -10,6 +15,9 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [loaded, setLoaded] = useState(false);
+  const [weatherMode, setWeatherMode] = useState<WeatherMode>('sunset');
+  const [currentMood, setCurrentMood] = useState<MoodType>('all');
+  const [showPostcard, setShowPostcard] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
 
   // Stable particles — deterministic, no re-random on every render
@@ -71,10 +79,19 @@ export default function App() {
     card.style.boxShadow = '';
   };
 
+  // Filter scenes based on selected Mood
+  const filteredScenes = useMemo(() => {
+    if (currentMood === 'all') return scenes;
+    return scenes;
+  }, [currentMood]);
+
   return (
     <>
       {/* ── Cinematic black fade-in intro ── */}
       <div className={`cinematic-intro${loaded ? ' intro-done' : ''}`} />
+
+      {/* ── Dynamic Weather & Time Mode Overlay ── */}
+      <WeatherOverlay mode={weatherMode} onModeChange={setWeatherMode} />
 
       {/* ── SVG Film Grain overlay ── */}
       <svg className="film-grain-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -110,6 +127,7 @@ export default function App() {
           </a>
           <div className={menuOpen ? 'nav-links open' : 'nav-links'}>
             <a href="#anubhav" onClick={() => setMenuOpen(false)}>Anubhav</a>
+            <a href="#tuner" onClick={() => setMenuOpen(false)}>Radio Tuner</a>
             <a href="#kaise" onClick={() => setMenuOpen(false)}>Kaise Kaam Karta Hai</a>
             <a href="#about" onClick={() => setMenuOpen(false)}>Humare Baare Mein</a>
           </div>
@@ -153,7 +171,9 @@ export default function App() {
               </p>
               <div className="hero-actions hero-anim" style={{ animationDelay: '1.15s' }}>
                 <a href="#anubhav" className="primary">Apna anubhav chuniye <ArrowDown size={17} /></a>
-                <button className="text-button">Hamari kahaani <ArrowRight size={17} /></button>
+                <button className="postcard-trigger-btn" onClick={() => setShowPostcard(true)}>
+                  <Mail size={16} /> <span>90s Chitthi / Postcard Share</span>
+                </button>
               </div>
             </div>
           </div>
@@ -163,7 +183,17 @@ export default function App() {
           </div>
         </section>
 
-        {/* ── Experiences ── */}
+        {/* ── Feature 1: Vintage Radio Tuner ── */}
+        <section id="tuner" className="tuner-section shell reveal">
+          <RadioTuner currentScene={currentScene} onSelectScene={setCurrentScene} />
+        </section>
+
+        {/* ── Feature 6: Mood & Emotion Filter ── */}
+        <section className="mood-section shell reveal">
+          <MoodFilter currentMood={currentMood} onSelectMood={setCurrentMood} />
+        </section>
+
+        {/* ── Experiences Cards ── */}
         <section id="anubhav" className="experiences">
           <div className="shell">
             <div className="section-heading reveal">
@@ -175,7 +205,7 @@ export default function App() {
             </div>
 
             <div className="cards">
-              {scenes.map((s, index) => (
+              {filteredScenes.map((s, index) => (
                 <button
                   className={`experience-card ${s.tint}${currentScene?.id === s.id ? ' selected' : ''} reveal`}
                   key={s.id}
@@ -201,6 +231,11 @@ export default function App() {
               ))}
             </div>
           </div>
+        </section>
+
+        {/* ── Feature 3: Desi Sound Board ── */}
+        <section className="soundboard-section shell reveal">
+          <SoundBoard />
         </section>
 
         {/* ── How It Works ── */}
@@ -239,7 +274,17 @@ export default function App() {
         </footer>
       </main>
 
+      {/* Player Component */}
       <Player scene={currentScene} />
+
+      {/* Feature 5: 90s Postcard Share Modal */}
+      {showPostcard && (
+        <PostcardModal
+          song={currentScene?.playlist[0] || null}
+          scene={currentScene}
+          onClose={() => setShowPostcard(false)}
+        />
+      )}
     </>
   );
 }

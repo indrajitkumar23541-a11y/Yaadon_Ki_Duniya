@@ -699,6 +699,150 @@ input[type=range]:hover::-webkit-slider-thumb {
   position: absolute; top: 0; left: 0; height: 100%;
   background: linear-gradient(to right, #d89938, #f5d87a);
   border-radius: 2px; pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CREATIVE FEATURES STYLING
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── 1. VINTAGE RADIO TUNER ── */
+.tuner-section { margin: 40px auto 20px; }
+.vintage-radio-tuner {
+  background: rgba(24, 18, 16, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(216, 153, 56, 0.3);
+  border-radius: 16px;
+  padding: 20px 28px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+  transition: border-color 0.3s ease;
+}
+.vintage-radio-tuner.tuning-active {
+  border-color: #f59e0b;
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
+}
+.tuner-header {
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;
+}
+.tuner-brand {
+  display: flex; align-items: center; gap: 8px; font-family: 'DM Mono', monospace; font-size: 0.85rem; color: #d89938; font-weight: 600; letter-spacing: 0.5px;
+}
+.tuner-led {
+  display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.4); padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(216, 153, 56, 0.2);
+}
+.led-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981;
+}
+.led-text { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: #10b981; }
+
+.tuner-dial-display {
+  position: relative; background: #0c0a09; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 16px 12px 12px; overflow: hidden;
+}
+.frequency-lines {
+  display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1;
+}
+.freq-tick {
+  background: none; border: none; color: #a1a1aa; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; transition: all 0.2s ease; flex: 1;
+}
+.freq-tick:hover { color: #f5d87a; transform: translateY(-2px); }
+.freq-tick.active { color: #f59e0b; font-weight: bold; }
+.tick-line { width: 2px; height: 16px; background: currentColor; opacity: 0.6; border-radius: 1px; }
+.freq-tick.active .tick-line { height: 24px; opacity: 1; background: #f59e0b; box-shadow: 0 0 8px #f59e0b; }
+.freq-num { font-family: 'DM Mono', monospace; font-size: 0.8rem; }
+.freq-name { font-size: 0.7rem; opacity: 0.85; }
+
+.tuner-needle {
+  position: absolute; top: 0; bottom: 0; width: 2px; background: #ef4444; box-shadow: 0 0 10px #ef4444; transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1); pointer-events: none; z-index: 2;
+}
+
+/* ── 2. DYNAMIC WEATHER OVERLAY & CONTROL ── */
+.weather-layer {
+  position: fixed; inset: 0; pointer-events: none; z-index: 9; transition: background 0.8s ease;
+}
+.weather-mode-night { background: rgba(10, 15, 30, 0.35); }
+.weather-mode-sunset { background: rgba(80, 20, 40, 0.15); }
+.weather-mode-rain { background: rgba(15, 23, 42, 0.25); }
+
+.rain-glass-overlay { position: absolute; inset: 0; overflow: hidden; }
+.rain-drop {
+  position: absolute; top: -20px; width: 1.5px; height: 18px; background: linear-gradient(to bottom, transparent, rgba(147, 197, 253, 0.7)); animation: rainFall linear infinite;
+}
+@keyframes rainFall { to { transform: translateY(100vh); } }
+
+.night-stars-overlay { position: absolute; inset: 0; }
+.star {
+  position: absolute; width: 2px; height: 2px; background: #fff; border-radius: 50%; box-shadow: 0 0 4px #fff; animation: starTwinkle 2s ease-in-out infinite alternate;
+}
+@keyframes starTwinkle { from { opacity: 0.2; transform: scale(0.8); } to { opacity: 1; transform: scale(1.3); } }
+
+.weather-control-pill {
+  position: fixed; top: 16px; right: 24px; z-index: 100; display: flex; gap: 4px; background: rgba(24, 18, 16, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.12); padding: 4px; border-radius: 30px; box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+.weather-btn {
+  background: none; border: none; color: #a1a1aa; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: all 0.2s ease;
+}
+.weather-btn:hover { color: #fff; background: rgba(255,255,255,0.08); }
+.weather-btn.active { background: rgba(216, 153, 56, 0.25); color: #f5d87a; border: 1px solid rgba(216, 153, 56, 0.4); }
+
+/* ── 3. SOUND FX BOARD ── */
+.soundboard-section { margin: 30px auto; }
+.retro-soundboard {
+  background: rgba(24, 18, 16, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.soundboard-title {
+  display: flex; align-items: center; gap: 8px; font-family: 'DM Mono', monospace; font-size: 0.8rem; color: #d89938; font-weight: 600;
+}
+.soundboard-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+.fx-btn {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: #e4e4e7; padding: 6px 14px; border-radius: 20px; font-size: 0.78rem; cursor: pointer; transition: all 0.2s ease;
+}
+.fx-btn:hover { background: rgba(216, 153, 56, 0.2); border-color: #d89938; color: #fff; transform: translateY(-2px); }
+.fx-btn:active { transform: translateY(0); }
+
+/* ── 5. 90s POSTCARD MODAL ── */
+.postcard-trigger-btn {
+  background: rgba(216, 153, 56, 0.15); border: 1px solid rgba(216, 153, 56, 0.35); color: #f5d87a; padding: 10px 18px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;
+}
+.postcard-trigger-btn:hover { background: rgba(216, 153, 56, 0.3); border-color: #f5d87a; color: #fff; transform: translateY(-2px); }
+
+.postcard-modal-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.75); backdrop-filter: blur(8px); z-index: 1000; display: grid; place-items: center; padding: 20px;
+}
+.postcard-modal-content {
+  position: relative; width: 100%; max-width: 540px; background: #fef3c7; color: #78350f; border-radius: 12px; padding: 24px; box-shadow: 0 25px 50px rgba(0,0,0,0.6); border: 3px solid #b45309; font-family: 'Georgia', serif;
+}
+.modal-close-btn {
+  position: absolute; top: 12px; right: 12px; background: rgba(120, 53, 15, 0.1); border: none; color: #78350f; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; display: grid; place-items: center;
+}
+.modal-close-btn:hover { background: rgba(120, 53, 15, 0.2); }
+
+.postcard-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px dashed #b45309; padding-bottom: 12px; margin-bottom: 16px; }
+.postcard-postmark { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: #92400e; display: flex; flex-direction: column; }
+.postcard-stamp { width: 50px; height: 60px; background: #dc2626; color: #fff; border: 2px dashed #fef3c7; display: grid; place-items: center; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+.stamp-inner { text-align: center; font-size: 0.65rem; }
+
+.postcard-body { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.postcard-left-col { border-right: 1px solid #fde68a; padding-right: 16px; }
+.postcard-label { font-size: 0.75rem; font-weight: bold; color: #92400e; display: block; margin-bottom: 4px; }
+.postcard-textarea { width: 100%; height: 80px; background: rgba(255,255,255,0.6); border: 1px solid #fcd34d; border-radius: 6px; padding: 6px; font-size: 0.8rem; color: #451a03; resize: none; }
+.postcard-sender { margin-top: 8px; }
+.postcard-sender label { font-size: 0.7rem; color: #92400e; display: block; }
+.postcard-input { width: 100%; background: rgba(255,255,255,0.6); border: 1px solid #fcd34d; border-radius: 4px; padding: 4px 6px; font-size: 0.78rem; color: #451a03; }
+
+.postcard-address-lines { display: flex; flex-direction: column; gap: 8px; justify-content: center; height: 100%; font-size: 0.8rem; }
+.addr-line { border-bottom: 1px solid #fcd34d; padding-bottom: 4px; color: #78350f; }
+
+.postcard-footer { margin-top: 20px; display: flex; justify-content: flex-end; }
+.postcard-action-btn { background: #b45309; color: #fff; border: none; padding: 8px 18px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+.postcard-action-btn:hover { background: #92400e; }
+
+/* ── 6. MOOD FILTER ── */
+.mood-section { margin: 15px auto; }
+.mood-filter-bar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: rgba(24, 18, 16, 0.5); backdrop-filter: blur(10px); padding: 10px 16px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.08); }
+.mood-label { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: #d89938; font-weight: 600; letter-spacing: 0.5px; }
+.mood-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+.mood-pill { background: none; border: 1px solid rgba(255,255,255,0.1); color: #a1a1aa; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: all 0.2s ease; }
+.mood-pill:hover { color: #fff; background: rgba(255,255,255,0.08); }
+.mood-pill.active { background: rgba(216, 153, 56, 0.25); color: #f5d87a; border-color: #d89938; font-weight: 600; }
   transition: width 0.5s linear;
 }
 .seek-slider {
