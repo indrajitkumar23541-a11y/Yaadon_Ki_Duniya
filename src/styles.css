@@ -982,8 +982,7 @@ input[type=range]:hover::-webkit-slider-thumb {
 .mood-pill { background: none; border: 1px solid rgba(255,255,255,0.1); color: #a1a1aa; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: all 0.2s ease; }
 .mood-pill:hover { color: #fff; background: rgba(255,255,255,0.08); }
 .mood-pill.active { background: rgba(216, 153, 56, 0.25); color: #f5d87a; border-color: #d89938; font-weight: 600; }
-  transition: width 0.5s linear;
-}
+
 .seek-slider {
   position: absolute; inset: 0; width: 100%;
   opacity: 0; cursor: pointer; height: 100%; margin: 0;
