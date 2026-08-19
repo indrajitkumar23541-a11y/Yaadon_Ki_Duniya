@@ -35,6 +35,15 @@ export default function App() {
     // Cinematic page-load fade-in
     const t = setTimeout(() => setLoaded(true), 150);
 
+    // Escape key listener for closing menu & modals
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMenuOpen(false);
+        setShowPostcard(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
     // Scroll-reveal with IntersectionObserver
     const observer = new IntersectionObserver(
       (entries) => {
@@ -48,7 +57,12 @@ export default function App() {
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     }, 400);
 
-    return () => { clearTimeout(t); clearTimeout(revealTimer); observer.disconnect(); };
+    return () => {
+      clearTimeout(t);
+      clearTimeout(revealTimer);
+      window.removeEventListener('keydown', handleKeyDown);
+      observer.disconnect();
+    };
   }, []);
 
   const handleHeroMouseMove = (e: React.MouseEvent<HTMLElement>) => {
@@ -90,34 +104,14 @@ export default function App() {
       {/* ── Cinematic black fade-in intro ── */}
       <div className={`cinematic-intro${loaded ? ' intro-done' : ''}`} />
 
-      {/* ── SVG Film Grain overlay ── */}
-      <svg className="film-grain-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <filter id="grain-filter">
-          <feTurbulence type="fractalNoise" baseFrequency="0.68" numOctaves="4" stitchTiles="stitch" />
-          <feColorMatrix type="saturate" values="0" />
-        </filter>
-        <rect width="100%" height="100%" filter="url(#grain-filter)" />
-      </svg>
-
-      {/* ── Floating golden dust particles ── */}
-      <div className="particles-container" aria-hidden="true">
-        {particles.map(p => (
-          <div key={p.id} className="particle" style={{
-            left: p.left,
-            animationDelay: p.delay,
-            animationDuration: p.duration,
-            width: p.size,
-            height: p.size,
-          }} />
-        ))}
-      </div>
-
-      {/* ── Scene-specific ambient background ── */}
-      <SceneBackground scene={currentScene} />
-
       <main className={currentScene ? 'has-player' : ''}>
         {/* ── Navigation ── */}
         <nav className="nav shell">
+          {/* Universal Backdrop for Mobile Menu */}
+          {menuOpen && (
+            <div className="nav-backdrop" onClick={() => setMenuOpen(false)} aria-label="Close navigation menu" />
+          )}
+
           <a className="brand" href="#home" aria-label="Yaadon Ki Duniya home">
             <span className="brand-mark">Y</span>
             <span><b>Yaadon Ki</b><em>Duniya</em></span>
@@ -132,8 +126,8 @@ export default function App() {
             <span className="nav-divider" aria-hidden="true">|</span>
             <WeatherOverlay mode={weatherMode} onModeChange={setWeatherMode} />
           </div>
-          <button className="menu" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
-            {menuOpen ? <X /> : <Menu />}
+          <button className="menu" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle Navigation Menu">
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </nav>
 

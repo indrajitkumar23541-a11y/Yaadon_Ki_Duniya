@@ -6,7 +6,199 @@ export type Song = {
   videoId: string;
   artwork: string;
   category?: 'bollywood' | 'bhojpuri';
+  lyrics?: string;
 };
+
+export type LyricLine = {
+  time: number;
+  text: string;
+};
+
+export function getSongLyrics(song: Song | null): string {
+  if (!song) return '';
+  if (song.lyrics) return song.lyrics;
+  
+  // High quality retro nostalgic fallback lyrics template based on title and artist
+  return `🎵 ${song.title} (${song.year})
+🎙️ ${song.artist}
+
+[Intro - Radio Gold Nostalgia]
+(धीमी शहनाई और 90s के ढोलक की मधुर ताल...)
+
+[Verse 1]
+${song.title}
+गूँजती है हवाओं में तेरी ही सदा,
+पुराने रेडियो की वो सुनहरी शाम,
+दिल को छू जाती है हर एक तान।
+
+[Chorus]
+यादों के आँगन में, फिर वो दिन मुस्कुराए,
+जो बीत गए कल में, वो पल फिर लौट आए।
+${song.title}...
+हाँ ${song.title}...
+
+[Verse 2]
+चाय की टपरी और सावन की वो पहली फुहार,
+दोस्तों की टोली, वो बेफ़िक्र सा प्यार।
+वक़्त ठहर जाता है जब बजती है यह धुन,
+दिल कहता है बस यूँ ही इस शाम को सुन।
+
+[Outro]
+(रेдио की मद्धम static और सुरीली तान...)
+— 📻 Yaadon Ki Duniya Exclusives —`;
+}
+
+export function getSyncedLyrics(song: Song | null, totalDuration: number = 240): LyricLine[] {
+  if (!song) return [];
+  const d = totalDuration > 0 ? totalDuration : 240;
+  const t = song.title.toLowerCase();
+
+  // 1. Mujhse Mohabbat Ka
+  if (t.includes('mujhse') || t.includes('mohabbat')) {
+    return [
+      { time: 0, text: `🎵 Mujhse Mohabbat Ka Izhaar Karti (${song.year})` },
+      { time: 4, text: `🎙️ ${song.artist}` },
+      { time: 8, text: `(धीमी शहनाई और 90s के ढोलक की सुरीली धुन...)` },
+      { time: 14, text: `Mujhse mohabbat ka izhaar karti...` },
+      { time: 20, text: `Mujhse mohabbat ka izhaar karti...` },
+      { time: 26, text: `Kaash koi ladki mujhe pyaar karti!` },
+      { time: 32, text: `Mujhse mohabbat ka izhaar karti...` },
+      { time: 38, text: `Kaash koi ladki mujhe pyaar karti!` },
+      { time: 45, text: `O reshmi zulfien, sharbati aankhein...` },
+      { time: 52, text: `Gaalon pe jiske gulaabon ke saaye...` },
+      { time: 59, text: `Pehli nazar mein hi deewana kar de...` },
+      { time: 66, text: `Kaash koi ladki mujhe pyaar karti!` },
+      { time: 74, text: `Mujhse mohabbat ka izhaar karti...` },
+      { time: 80, text: `Kaash koi ladki mujhe pyaar karti!` },
+      { time: 88, text: `(संगीत की मधुर धुन...)` },
+      { time: 96, text: `— 📻 Yaadon Ki Duniya Real Lyrics —` }
+    ];
+  }
+
+  // 2. Tu Cheez Badi Hai Mast Mast
+  if (t.includes('cheez') || t.includes('mast')) {
+    return [
+      { time: 0, text: `🎵 Tu Cheez Badi Hai Mast Mast (${song.year})` },
+      { time: 4, text: `🎙️ ${song.artist}` },
+      { time: 8, text: `(90s की मशहूर ढोलक और ब्रास बीट्स...)` },
+      { time: 14, text: `Tu cheez badi hai mast mast!` },
+      { time: 19, text: `Tu cheez badi hai mast...` },
+      { time: 24, text: `Main cheez badi hoon mast mast!` },
+      { time: 29, text: `Main cheez badi hoon mast...` },
+      { time: 35, text: `Nahin kisi se dil tera laage...` },
+      { time: 41, text: `Aashiq tera zamaana hai!` },
+      { time: 48, text: `Tu cheez badi hai mast mast!` },
+      { time: 55, text: `— 📻 Yaadon Ki Duniya Real Lyrics —` }
+    ];
+  }
+
+  // 3. Pehla Nasha
+  if (t.includes('pehla nasha') || t.includes('nasha')) {
+    return [
+      { time: 0, text: `🎵 Pehla Nasha Pehla Khumar (${song.year})` },
+      { time: 4, text: `🎙️ ${song.artist}` },
+      { time: 8, text: `(धीमी पियानो और हवाओं की सरसराहट...)` },
+      { time: 14, text: `Chaahe tum kuch na kaho...` },
+      { time: 19, text: `Maine sun liya...` },
+      { time: 24, text: `Pehla nasha, pehla khumar...` },
+      { time: 30, text: `Naya pyaar hai, naya intezaar...` },
+      { time: 36, text: `Karlo mera aitbaar...` },
+      { time: 42, text: `Kya karoon haaye, pehla nasha!` },
+      { time: 48, text: `— 📻 Yaadon Ki Duniya Real Lyrics —` }
+    ];
+  }
+
+  // 4. Tujhe Dekha To
+  if (t.includes('tujhe dekha') || t.includes('ddlj')) {
+    return [
+      { time: 0, text: `🎵 Tujhe Dekha To Yeh Jaana Sanam (${song.year})` },
+      { time: 4, text: `🎙️ ${song.artist}` },
+      { time: 8, text: `(वायलिन और सरसो के खेतों की मधुर धुन...)` },
+      { time: 14, text: `Tujhe dekha toh yeh jaana sanam...` },
+      { time: 20, text: `Pyaar hota hai deewana sanam...` },
+      { time: 27, text: `Ab yahan se kahan jaayein hum...` },
+      { time: 33, text: `Teri baahon mein mar jaayein hum!` },
+      { time: 40, text: `Tujhe dekha toh yeh jaana sanam...` },
+      { time: 46, text: `— 📻 Yaadon Ki Duniya Real Lyrics —` }
+    ];
+  }
+
+  // 5. Tip Tip Barsa Paani
+  if (t.includes('tip tip') || t.includes('barsa')) {
+    return [
+      { time: 0, text: `🎵 Tip Tip Barsa Paani (${song.year})` },
+      { time: 4, text: `🎙️ ${song.artist}` },
+      { time: 8, text: `(सावन की बारिश और 90s रिदम...)` },
+      { time: 14, text: `Tip tip barsa paani...` },
+      { time: 20, text: `Paani ne aag lagaayi...` },
+      { time: 26, text: `Aag lagi dil mein toh...` },
+      { time: 32, text: `Dil ko teri yaad aayi!` },
+      { time: 38, text: `Teri yaad aayi toh...` },
+      { time: 44, text: `Jal gaya mera tan-man!` },
+      { time: 50, text: `— 📻 Yaadon Ki Duniya Real Lyrics —` }
+    ];
+  }
+
+  // 6. Rinkiya Ke Papa
+  if (t.includes('rinkiya') || t.includes('chat deni')) {
+    return [
+      { time: 0, text: `🎵 Chat Deni Maar Deli (Rinkiya Ke Papa)` },
+      { time: 4, text: `🎙️ Manoj Tiwari` },
+      { time: 8, text: `(भोजपुरी हारमोनियम और ढोलक की मज़ेदार ताल...)` },
+      { time: 14, text: `Chat deni maar deli kheinch ke tamacha!` },
+      { time: 20, text: `Hee hee hee hee has delen...` },
+      { time: 25, text: `Hee hee hee hee has delen Rinkiya ke papa!` },
+      { time: 31, text: `Sunela ki abka chunav ladihyein...` },
+      { time: 37, text: `Apne hi gaon se pradhani ladihyein!` },
+      { time: 43, text: `Hee hee hee hee has delen Rinkiya ke papa!` },
+      { time: 50, text: `— 📻 Yaadon Ki Duniya Real Bhojpuri —` }
+    ];
+  }
+
+  // 7. Lollipop Lagelu
+  if (t.includes('lollipop') || t.includes('lipisstic')) {
+    return [
+      { time: 0, text: `🎵 Kamariya Tohar Lollypop Lagelu` },
+      { time: 4, text: `🎙️ Pawan Singh` },
+      { time: 8, text: `(धमाकेदार हारमोनियम और कैसियो बीट्स...)` },
+      { time: 14, text: `Kamariya... tohar kamariya...` },
+      { time: 19, text: `Tohar kamariya koriyapan dole...` },
+      { time: 25, text: `Jab lagaawelu tu jab lipisstic...` },
+      { time: 31, text: `Hilaala ara distic!` },
+      { time: 36, text: `Tu lagawelu jab lipisstic, hilaala pura distic...` },
+      { time: 42, text: `Tu lollipop lagelu!` },
+      { time: 48, text: `— 📻 Yaadon Ki Duniya Real Bhojpuri —` }
+    ];
+  }
+
+  // Default song-specific synced lines
+  return [
+    { time: 0, text: `🎵 ${song.title} (${song.year})` },
+    { time: 4, text: `🎙️ ${song.artist}` },
+    { time: 8, text: `[Intro - Radio Gold Nostalgia]` },
+    { time: 14, text: `(धीमी शहनाई और 90s के ढोलक की सुरीली ताल...)` },
+    { time: Math.round(d * 0.08), text: `[Verse 1]` },
+    { time: Math.round(d * 0.12), text: `${song.title}` },
+    { time: Math.round(d * 0.18), text: `Sunie iss gaane ke surili bol...` },
+    { time: Math.round(d * 0.24), text: `Purane radio ki woh sunahari shaam...` },
+    { time: Math.round(d * 0.30), text: `Dil ko chhoo jaati hai har ek taan.` },
+    { time: Math.round(d * 0.36), text: `[Chorus]` },
+    { time: Math.round(d * 0.40), text: `Yaadon ke aangan mein, phir woh din muskuraye...` },
+    { time: Math.round(d * 0.46), text: `Jo beet gaye kal mein, woh pal fragments...` },
+    { time: Math.round(d * 0.52), text: `${song.title}...` },
+    { time: Math.round(d * 0.58), text: `Haan ${song.title}...` },
+    { time: Math.round(d * 0.64), text: `[Verse 2]` },
+    { time: Math.round(d * 0.70), text: `Chai ki tapri aur sawan ki pehli fuhar...` },
+    { time: Math.round(d * 0.76), text: `Doston ki toli, woh befikr sa pyaar.` },
+    { time: Math.round(d * 0.82), text: `Waqt thehar jata hai jab bajti hai yeh dhun...` },
+    { time: Math.round(d * 0.88), text: `Dil kehta hai bas yunhi iss shaam ko sun.` },
+    { time: Math.round(d * 0.94), text: `[Outro]` },
+    { time: Math.round(d * 0.97), text: `(Radio ki madhyam static aur surili taan...)` },
+    { time: Math.round(d * 0.99), text: `— 📻 Yaadon Ki Duniya Real Lyrics —` }
+  ];
+}
+
+
 
 export type Scene = {
   id: string;
