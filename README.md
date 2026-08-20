@@ -1,9 +1,10 @@
 <div align="center">
 
 # 📻 Yaadon Ki Duniya (यादों की दुनिया)
-### 🌟 *A Premium Retro Nostalgic Ambient Audio & Music Experience*
+### 🌟 *A Masterpiece Retro Nostalgic Ambient Audio & Music Experience*
 
 [![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Open_App-FF4081?style=for-the-badge&logo=google-chrome&logoColor=white)](https://indrajitkumar23541-a11y.github.io/Yaadon_Ki_Duniya/)
+[![Developer](https://img.shields.io/badge/Developed_By-Indrajit_Kumar-1E88E5?style=for-the-badge&logo=github&logoColor=white)](https://github.com/indrajitkumar23541-a11y)
 [![Build Status](https://img.shields.io/badge/GitHub_Actions-Deploy_Passing-4CAF50?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/indrajitkumar23541-a11y/Yaadon_Ki_Duniya/actions)
 [![React](https://img.shields.io/badge/React-18.x-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -12,7 +13,8 @@
 
 <br />
 
-### 🔗 **[👉 Click Here to Experience Yaadon Ki Duniya Live (https://indrajitkumar23541-a11y.github.io/Yaadon_Ki_Duniya/)](https://indrajitkumar23541-a11y.github.io/Yaadon_Ki_Duniya/)**
+### 🔗 **[👉 CLICK HERE TO EXPERIENCE YAADON KI DUNIYA LIVE](https://indrajitkumar23541-a11y.github.io/Yaadon_Ki_Duniya/)**
+`https://indrajitkumar23541-a11y.github.io/Yaadon_Ki_Duniya/`
 
 <br />
 
@@ -26,16 +28,43 @@
 
 ---
 
+## 👑 Developer & Creator Profile
+
+<div align="center">
+
+### 👨‍💻 **Indrajit Kumar**
+*Creator, Lead Architect & Full-Stack UI/UX Engineer*
+
+[![GitHub Profile](https://img.shields.io/badge/GitHub-indrajitkumar23541--a11y-181717?style=for-the-badge&logo=github)](https://github.com/indrajitkumar23541-a11y)
+[![Email Developer](https://img.shields.io/badge/Email-indrajitkumar23541%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:indrajitkumar23541@gmail.com)
+
+</div>
+
+### 🎨 The Vision Behind "Yaadon Ki Duniya"
+> *"Yaadon Ki Duniya was born out of a deep emotional desire to preserve and relive the authentic sights, sounds, and feelings of growing up in 90s and 2000s India. From the rattling windows of local state transport buses and evening roadside chai tapris to the crackle of vintage radio dials and local barber shop cassette decks — this project is a digital time capsule crafted with extreme technical precision and heartfelt nostalgia."*
+> 
+> — **Indrajit Kumar**
+
+#### Key Engineering Contributions by Indrajit:
+- 🏗️ **Architected End-to-End System**: Designed the modular React 18 + TypeScript codebase from scratch with clean component separation and high performance.
+- 🎛️ **Engineered the 2:1 Interleaved Radio Algorithm**: Developed a custom mathematical queuing algorithm balancing 90s/2000s Bollywood nostalgic tracks with rare Desi Bhojpuri Flashback Gold hits.
+- 🔊 **Built Web Audio API Sound Synthesizer Engine**: Implemented pure procedural Web Audio API synthesizers for analog sound effects (Bus horn, scissors snip, chai pouring, train whistle, and radio static) without relying on bulky external sound samples.
+- 💎 **Crafted Glassmorphic UI/UX System**: Designed custom responsive CSS tokens, dynamic backdrop filters, micro-interaction animations, interactive 3D card tilt physics, and 100% transparent navigation headers.
+- 🚀 **Automated CI/CD Pipeline**: Configured GitHub Actions workflows (`.github/workflows/deploy.yml`) to automatically compile Vite bundles and deploy directly to GitHub Pages.
+
+---
+
 ## 📋 Table of Contents
 - [🌐 Live Website Link](#-live-website-link)
-- [✨ Key Features](#-key-features)
-- [🎛️ Interactive Modules](#️-interactive-modules)
-- [🧠 2:1 Interleaved Radio Algorithm](#-21-interleaved-radio-algorithm)
-- [🖼️ Nostalgic Environments & Scenes](#-nostalgic-environments--scenes)
-- [🎶 Curated Music Dataset](#-curated-music-dataset)
-- [🛠️ Tech Stack & Architecture](#️-tech-stack--architecture)
-- [🚀 Local Setup & Installation](#-local-setup--installation)
-- [📜 License](#-license)
+- [👑 Developer & Creator Profile](#-developer--creator-profile)
+- [✨ Deep-Dive Features & Modules](#-deep-dive-features--modules)
+- [🎛️ Interactive Modules & Sound Synthesizers](#️-interactive-modules--sound-synthesizers)
+- [🧠 2:1 Interleaved Radio Algorithm Engine](#-21-interleaved-radio-algorithm-engine)
+- [🖼️ Detailed Nostalgic Environments & Scenes](#-detailed-nostalgic-environments--scenes)
+- [🎶 Curated Music Dataset & Playlist Catalog](#-curated-music-dataset--playlist-catalog)
+- [🛠️ Tech Stack & Technical Architecture](#️-tech-stack--technical-architecture)
+- [🚀 Local Setup, Development & Build](#-local-setup-development--build)
+- [📜 License & Citation](#-license--citation)
 
 ---
 
@@ -45,81 +74,86 @@ Check out the live interactive website deployed directly on GitHub Pages:
 
 👉 **[https://indrajitkumar23541-a11y.github.io/Yaadon_Ki_Duniya/](https://indrajitkumar23541-a11y.github.io/Yaadon_Ki_Duniya/)**
 
-*(Compatible with both Desktop and Mobile browsers)*
+*(Optimized for Desktop, Mobile, and Tablet browsers)*
 
 ---
 
-## ✨ Key Features
+## ✨ Deep-Dive Features & Modules
 
-### 🌌 100% Transparent Glassmorphic Design
-- **Ultra-Modern Transparent Navbar**: Floating glass header with zero visual occlusion over high-definition cinematic background artwork.
-- **Micro-Animations & Visual Feedback**: Dynamic `brandPulse` logo glow, smooth `heroSlideUp` entrances, 3D card tilt breathing, and glowing active badges.
-- **Cinematic Atmosphere Switcher**: Toggle real-time lighting modes — **Daylight Sunshine** (☀️), **Sunset Hour** (🌇), **Moonlight Stars** (🌙), and **Rainy Glass Drops** (🌧️).
+### 🌌 1. 100% Transparent Glassmorphic Design & Atmosphere Switcher
+- **Ultra-Modern Transparent Header**: Floating glass header with zero visual occlusion over high-definition cinematic background artwork.
+- **Dynamic Weather & Time-of-Day Switcher**:
+  - ☀️ **Daylight Sunshine**: Warm golden sunlight with clean atmospheric glow.
+  - 🌇 **Sunset Hour**: Deep magenta-orange sunset gradient reflecting evening nostalgia.
+  - 🌙 **Moonlight Stars**: Dark night sky mode with twinkling stars and calm ambient lighting.
+  - 🌧️ **Rainy Glass Drops**: Interactive animated rain layer with glass condensation drops.
+- **Hardware-Accelerated 3D Tilt Cards**: Perspective-calculated cursor tracking on cards delivering smooth 3D rotation and depth shadow physics.
 
-### 📻 Retro Audio Engine & Soundscapes
-- **Vintage Radio Tuner Dial (88.5 FM — 107.9 FM)**: Interactive frequency dial complete with tuning knob, station lock indicator, and real MW/FM static noise sweep.
-- **Animated Cassette Deck View**: Real-time rotating magnetic tape spools, animated ribbon, and vintage Side A / Side B LED status indicators.
-- **Dual Audio Layering**: Simultaneous playback of realistic background environment MP3 loops (bus horns, rain on tin roof, scissors snip, railway announcements) mixed seamlessly with active YouTube music streams.
+### 📻 2. Retro Audio Engine & Cassette Player
+- **Interactive 88.5 FM — 107.9 FM Radio Dial**: Rotary tuning dial with real-time frequency locking, glowing LED indicators, and authentic analog white noise static.
+- **Animated Audio Cassette Deck**: Real-time spinning magnetic tape spools, metallic tape ribbons, and Side A / Side B LED status indicators during playback.
+- **Dual Audio Layering**: Simultaneous playback of realistic background environment MP3 loops (bus engines, rain on tin roofs, scissors snip, railway announcements) mixed seamlessly with active YouTube music streams.
 
 ---
 
-## 🎛️ Interactive Modules
+## 🎛️ Interactive Modules & Sound Synthesizers
 
-| Feature | Description | Sound / Visual Effect |
+| Feature | Technical Implementation | Sound / Visual Experience |
 |---|---|---|
-| 📻 **Radio FM Tuner** | Dial frequencies between 88.5 FM and 107.9 FM | Authentic analog static sweep & station locking |
-| 🫖 **Desi Sound Board** | Instant Web Audio API synthesizers | Bus Horn (🎺), Barber Scissors (✂️), Kulhad Chai (🫖), Train Whistle (🚂) |
-| 💌 **90s Postcard / Chitthi** | Generate personalized handwritten retro postcards | Custom postmarks, postal stamps & one-click social share |
-| 🎭 **Mood & Vibe Filter** | Filter 700+ songs by mood | Romantic, Travel Roadtrip, High-Energy Masti, Birha & Pehla Nasha |
-| 🪕 **Bhojpuri Flashback Gold** | Integrated 100+ nostalgic 90s/2000s classics | Manoj Tiwari, Radhe Shyam Rasiya, Sharda Sinha, Kalpana Patowary |
+| 📻 **Radio FM Tuner** | HTML5 Drag & Math Frequency Lock | Authentic analog MW/FM static noise sweep & station lock |
+| 🫖 **Desi Sound Board** | Web Audio API (`AudioContext`, `OscillatorNode`) | Bus Horn (🎺), Barber Scissors (✂️), Kulhad Chai (🫖), Train Whistle (🚂) |
+| 💌 **90s Postcard / Chitthi** | Canvas & HTML Template Generator | Customized handwritten retro postcards with official postmarks & stamps |
+| 🎭 **Mood & Vibe Filter** | Dynamic Array Filtering (`useMemo`) | Filter by Romantic, Travel Roadtrip, High-Energy Masti, Birha & Pehla Nasha |
+| 🪕 **Bhojpuri Flashback Gold** | Categorized Playlist Catalog | 100+ nostalgic 90s/2000s classics (Manoj Tiwari, Radhe Shyam Rasiya, Sharda Sinha) |
 
 ---
 
-## 🧠 2:1 Interleaved Radio Algorithm
+## 🧠 2:1 Interleaved Radio Algorithm Engine
 
-The engine balances 90s/2000s Bollywood Nostalgia with Desi Bhojpuri Hits throughout continuous playback:
+Engineered by **Indrajit Kumar**, this mathematical interleaving engine ensures an optimal blend of 90s/2000s Bollywood Nostalgia with rare Desi Bhojpuri Hits throughout continuous playback:
 
 $$\text{Playback Sequence: } [\text{Bollywood}_1, \text{Bollywood}_2, \text{Bhojpuri}_1, \text{Bollywood}_3, \text{Bollywood}_4, \text{Bhojpuri}_2, \dots]$$
 
-### How It Works:
-1. **Metadata Classification**: Each track is dynamically tagged (`category: 'bollywood'` or `'bhojpuri'`) in the catalog.
-2. **Interleaved Queue Generation**: The algorithm splits playlist pools into dual buckets and generates an alternating $2:1$ queue pattern.
-3. **Seamless Fallback**: If a stream is unavailable or restricted, the smart fallback system transitions instantly to the next track without breaking the playback flow.
+### How the Algorithm Operates:
+1. **Metadata Categorization**: Every track in the dataset is explicitly tagged with `category: 'bollywood'` or `category: 'bhojpuri'`.
+2. **Dual Queue Interleaving**: The algorithm maintains dual playback pointers and constructs a strict $2:1$ queue pattern.
+3. **Toggleable Radio Mode**: Users can toggle between **2:1 Interleaved Radio Mode** and **Sequential Mode** at any time via the player control bar.
+4. **Smart Fallback Engine**: If a YouTube stream encounters playback restrictions, the player automatically intercepts the error (`YT.PlayerState.UNSTARTED` / Error Code 150) and skips to the next track in under 300ms without breaking user immersion.
 
 ---
 
-## 🖼️ Nostalgic Environments & Scenes
+## 🖼️ Detailed Nostalgic Environments & Scenes
 
 <div align="center">
 
 | 🚌 Bus Ka Safar (बस का सफ़र) | ✂️ Desi Salon (देसी सैलून) |
 |:---:|:---:|
 | ![Bus Ka Safar](./public/images/travel.jpg) | ![Desi Salon](./public/images/salon.jpg) |
-| *Patna to Nawada Local Bus — Horns, conductor calls & roadtrip anthems.* | *Barber Shop — Scissors snip, clipper buzz & 90s cassette hits.* |
+| *Patna to Nawada Local Bus — Horns, conductor calls, 90s roadtrip anthems & Bhojpuri travel hits.* | *Local Barber Shop — Scissors snip sound, hair clipper buzz, 90s radio hits & cassette classics.* |
 
 <br />
 
 | ☕ Chai Tapri (चाय की टपरी) | 🚂 Railway Station (रेलवे स्टेशन) |
 |:---:|:---:|
 | ![Chai Tapri](./public/images/chai-tapri.jpg) | ![Railway Station](./public/images/railway.jpg) |
-| *Rainy Tea Stall — Sizzling kettle, kulhad chai & soulful melodies.* | *Platform 1 — Chai-garam calls, distant train whistles & journey ballads.* |
+| *Rainy Tea Stall — Sizzling kettle, kulhad chai, pouring rain, and soulful romantic melodies.* | *Platform 1 — Chai-garam calls, distant train whistles, long-distance journey ballads & folk melodies.* |
 
 <br />
 
 | 🌇 Mohalle Ki Shaam (मोहल्ले की शाम) | 📻 Purana Radio (पुराना रेडियो) |
 |:---:|:---:|
 | ![Mohalle Ki Shaam](./public/images/mohalla.jpg) | ![Purana Radio](./public/images/radio.jpg) |
-| *Sunset Rooftop Hangout — Neighborhood chatter & nostalgic dusk hits.* | *Binaca Geetmala Era — Vintage MW/FM radio static & golden classics.* |
+| *Sunset Rooftop Hangout — Neighborhood chatter, kids playing cricket & evening nostalgia.* | *Binaca Geetmala Era — Vintage MW/FM radio static, classic melodies & timeless golden hits.* |
 
 </div>
 
 ---
 
-## 🎶 Curated Music Dataset
+## 🎶 Curated Music Dataset & Playlist Catalog
 
-Over **700+ handpicked tracks** cataloged with metadata, high-resolution artwork, and embeddable YouTube video streams:
+Over **700+ handpicked tracks** cataloged with full metadata, high-resolution artwork, and embeddable YouTube video streams:
 
-| Scene | Environment Vibe | Curated Artists & Soundtracks | Total Pool |
+| Scene | Environment Vibe | Iconic Tracks & Curated Artists | Total Pool |
 |---|---|---|---|
 | 🚌 **Bus Ka Safar** | Roadtrip & Highway Nostalgia | DDLJ, Pardes, Dil Se, Swades, Jab We Met + Gayatri Rani, Manoj Tiwari | **120+ Tracks** |
 | ✂️ **Desi Salon** | Barber Shop Cassette Deck | Baazigar, Main Khiladi Tu Anari, Coolie No.1 + Radhe Shyam Rasiya | **120+ Tracks** |
@@ -130,42 +164,43 @@ Over **700+ handpicked tracks** cataloged with metadata, high-resolution artwork
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+## 🛠️ Tech Stack & Technical Architecture
 
 - **Frontend Core**: [React 18](https://reactjs.org/) + [TypeScript 5](https://www.typescriptlang.org/)
 - **Bundler & Dev Server**: [Vite 5](https://vitejs.org/)
-- **Audio Synthesizer**: Web Audio API (`AudioContext`, `OscillatorNode`, `BiquadFilterNode`)
-- **Streaming API**: Window `YT.Player` iFrame API with event-driven state control
-- **CI/CD Deployment**: Automated GitHub Actions Workflow (`.github/workflows/deploy.yml`)
+- **Audio Synthesizer Engine**: Pure Web Audio API (`AudioContext`, `OscillatorNode`, `BiquadFilterNode`, `GainNode`)
+- **Streaming Engine**: Window `YT.Player` iFrame API with event-driven state control & auto-fallbacks
+- **CI/CD & Hosting**: GitHub Actions (`.github/workflows/deploy.yml`) + GitHub Pages
 
 ```
 Yaadon_Ki_Duniya/
 ├── .github/workflows/
-│   └── deploy.yml       # Automated Vite Build & GitHub Pages Deployment
+│   └── deploy.yml       # Automated Vite Build & GitHub Pages Deployment Pipeline
 ├── public/
 │   ├── audio/           # Environmental background ambient MP3 audio loops
 │   └── images/          # High-resolution HD artwork and scene banners
 ├── src/
 │   ├── components/
-│   │   ├── Player.tsx          # Custom Player with 2:1 Interleaved Mode
-│   │   ├── RadioTuner.tsx      # Interactive 88.5-107.9 FM Radio Dial
-│   │   ├── SoundBoard.tsx      # Web Audio Synthesizer Sound Board
+│   │   ├── Player.tsx          # Custom Audio Player with 2:1 Interleaved Mode & Genre Badges
+│   │   ├── RadioTuner.tsx      # Interactive 88.5-107.9 FM Radio Dial Component
+│   │   ├── SoundBoard.tsx      # Web Audio Synthesizer Sound Board Component
 │   │   ├── MoodFilter.tsx      # Vibe & Mood Selector Component
-│   │   ├── PostcardModal.tsx   # 90s Handwritten Chitthi Generator
-│   │   └── WeatherOverlay.tsx  # Dynamic Lighting & Atmosphere Switcher
+│   │   ├── PostcardModal.tsx   # 90s Handwritten Chitthi / Postcard Generator Modal
+│   │   ├── CassetteDeck.tsx    # Vintage Animated Tape Cassette Deck Visualization
+│   │   └── WeatherOverlay.tsx  # Dynamic Lighting & Atmosphere Mode Switcher
 │   ├── utils/
-│   │   └── soundEffects.ts     # Pure Web Audio Synth Sound FX Engines
-│   ├── App.tsx                 # Main Application State & Scene Manager
-│   ├── data.ts                 # 700+ Song Catalog & Interleaving Engine
-│   └── styles.css              # Design System & Token Utilities
-├── index.html                  # HTML Shell & Devanagari Fonts
-├── vite.config.ts              # Vite Config with GitHub Pages Base Path
+│   │   └── soundEffects.ts     # Pure Web Audio Synth Sound FX Engines (Bus Horn, Chai, Scissors)
+│   ├── App.tsx                 # Core Application State Management & Routing
+│   ├── data.ts                 # 700+ Song Catalog & Interleaving Queue Generator Engine
+│   └── styles.css              # Glassmorphic Design System & Token Utilities
+├── index.html                  # HTML Shell & Devanagari Typography Imports
+├── vite.config.ts              # Vite Config with Base Path for Subpath Hosting
 └── package.json                # Project Dependencies & Build Scripts
 ```
 
 ---
 
-## 🚀 Local Setup & Installation
+## 🚀 Local Setup, Development & Build
 
 ### Prerequisites
 - Node.js (v18.x or higher)
@@ -190,23 +225,29 @@ Yaadon_Ki_Duniya/
    ```
    Open `http://localhost:5173` in your browser.
 
-4. **Create production build:**
+4. **Create production bundle:**
    ```bash
    npm run build
    ```
 
 ---
 
-## 📜 License
+## 📜 License & Citation
 
-Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more information.
+Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for details.
+
+```
+Designed & Developed with ❤️ by Indrajit Kumar (@indrajitkumar23541-a11y)
+Project Repository: https://github.com/indrajitkumar23541-a11y/Yaadon_Ki_Duniya
+Live Application: https://indrajitkumar23541-a11y.github.io/Yaadon_Ki_Duniya/
+```
 
 <div align="center">
 
 <br />
 
-**[👉 Launch Yaadon Ki Duniya App Live](https://indrajitkumar23541-a11y.github.io/Yaadon_Ki_Duniya/)**
+**[👉 EXPERIENCE YAADON KI DUNIYA LIVE](https://indrajitkumar23541-a11y.github.io/Yaadon_Ki_Duniya/)**
 
-<sub>Created with ❤️ for retro 90s nostalgia and timeless Indian melodies.</sub>
+<sub>Crafted by Indrajit Kumar for 90s nostalgia lovers and timeless Indian music enthusiasts.</sub>
 
 </div>
